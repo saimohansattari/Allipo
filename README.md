@@ -11,13 +11,20 @@ In the project directory, you can run:
 
 
 ## Screens 
-https://github.com/saimohansattari/Allipo/issues/1#issue-1996146112
+
 
 Homepage:
 ![Screen1](https://github.com/saimohansattari/Allipo/assets/90680136/f7484900-e4f7-4c66-a41d-699eaec07fc1)
 
+
+
 when click on Edit Button:
-![Screen2](https://github.com/saimohansattari/Allipo/issues/1#issuecomment-1813856162)
+![Screen2](https://github.com/saimohansattari/Allipo/assets/90680136/cbcac1ec-2ea3-4b64-b460-9f0d5574e5de)
+
+
+
+when click on Delete Button:
+![Screen3](https://github.com/saimohansattari/Allipo/assets/90680136/8df18162-0a53-4c19-9e12-4b9a0d2886fc)
 
 
 
