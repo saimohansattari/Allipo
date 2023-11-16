@@ -15,6 +15,9 @@ In the project directory, you can run:
 Homepage:
 ![Screen1](https://github.com/saimohansattari/Allipo/assets/90680136/f7484900-e4f7-4c66-a41d-699eaec07fc1)
 
+when click on Edit Button:
+![Screen2](https://github.com/saimohansattari/Allipo/issues/1#issuecomment-1813856162)
+
 
 
 
