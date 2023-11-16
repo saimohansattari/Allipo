@@ -71,13 +71,13 @@ export const RedBtn = styled.button`
   border-radius: 5px;
   font-size: 14px;
   font-weight: 500;
+  margin-left: 15px;
   &:hover {
     background-color: #b83939;
   }
 `;
 
 //Styled components for Pop-up Form
-
 export const EditModalOverlay = styled.div`
   position: fixed;
   top: 0;
