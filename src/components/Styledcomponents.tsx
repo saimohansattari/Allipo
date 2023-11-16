@@ -48,7 +48,7 @@ export const TableData = styled.td`
 `;
 
 //Reusable styled Buttons
-export const EditBtn = styled.button`
+export const GreenBtn = styled.button`
   width: 80px;
   height: 40px;
   background-color: green;
@@ -57,9 +57,12 @@ export const EditBtn = styled.button`
   border-radius: 5px;
   font-size: 14px;
   font-weight: 500;
+  &:hover {
+    background-color: #52e852;
+  }
 `;
 
-export const DeleteBtn = styled.button`
+export const RedBtn = styled.button`
   width: 80px;
   height: 40px;
   background-color: Red;
@@ -68,4 +71,33 @@ export const DeleteBtn = styled.button`
   border-radius: 5px;
   font-size: 14px;
   font-weight: 500;
+  &:hover {
+    background-color: #b83939;
+  }
+`;
+
+//Styled components for Pop-up Form
+
+export const EditModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const EditModal = styled.div`
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+`;
+
+export const InputFeild = styled.input`
+  width: 100%;
+  margin-bottom: 10px;
 `;
