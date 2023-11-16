@@ -11,6 +11,7 @@ In the project directory, you can run:
 
 
 ## Screens 
+https://github.com/saimohansattari/Allipo/issues/1#issue-1996146112
 
 Homepage:
 ![Screen1](https://github.com/saimohansattari/Allipo/assets/90680136/f7484900-e4f7-4c66-a41d-699eaec07fc1)
