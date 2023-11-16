@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+//StyledMainContainer  (if we want to add some more pages with same background color and other stying we can use this styledComponent)
 export const MainContainer = styled.div`
   padding: 50px;
   height: 100vh;

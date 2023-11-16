@@ -22,6 +22,7 @@ function Home() {
   const [editedIndex, setEditedIndex] = useState(-1);
 
   useEffect(() => {
+    // getting data from API
     axios
       .get("https://assets.alippo.com/catalog/static/data.json")
       .then((response) => setData(response.data));
@@ -46,6 +47,7 @@ function Home() {
     setDeleteModalOpen(false);
   };
 
+  //Edit Onclick Functionality
   const handleEditSubmit = () => {
     const newData = [...data];
     newData[editedIndex].name = editedValue;
@@ -53,6 +55,7 @@ function Home() {
     closeEditModal();
   };
 
+  //Delete Onclick Functionality
   const handleDeleteSubmit = () => {
     const newData = [...data];
     newData.splice(editedIndex, 1);
@@ -100,7 +103,6 @@ function Home() {
           </Table>
         </TablesForm>
       </MainContainer>
-
       {/* Edit Modal Form pop-up */}
       {isEditModalOpen && (
         <EditModalOverlay>
