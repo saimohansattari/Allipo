@@ -92,12 +92,17 @@ export const EditModalOverlay = styled.div`
 
 export const EditModal = styled.div`
   background: white;
-  padding: 20px;
+  height: 45vh;
+  padding: 40px;
+
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 `;
 
 export const InputFeild = styled.input`
   width: 100%;
+  border: 1px solid 1px;
+  border-radius: 5px;
+  padding: 15px;
   margin-bottom: 10px;
 `;

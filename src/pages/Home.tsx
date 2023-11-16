@@ -7,8 +7,11 @@
 //   TableData,
 //   Table,
 //   TableHead,
-//   EditBtn,
-//   DeleteBtn,
+//   GreenBtn,
+//   RedBtn,
+//   EditModalOverlay,
+//   EditModal,
+//   InputFeild,
 // } from "../components/Styledcomponents";
 
 // function Home() {
@@ -24,7 +27,7 @@
 //   }, []);
 
 //   const openEditModal = (index: number, value: string | null) => {
-//     setEditedValue(value || ""); // Use the value if it exists, otherwise use an empty string
+//     setEditedValue(value || "");
 //     setEditedIndex(index);
 //     setEditModalOpen(true);
 //   };
@@ -34,12 +37,9 @@
 //   };
 
 //   const handleEditSubmit = () => {
-//     // Update the local data directly does not in API because there is no Id's for data
 //     const newData = [...data];
 //     newData[editedIndex].name = editedValue;
 //     setData(newData);
-
-//     // Close the modal
 //     closeEditModal();
 //   };
 
@@ -67,10 +67,12 @@
 //                   <TableData>{Rowdata.city}</TableData>
 //                   <TableData>{Rowdata.pinCode}</TableData>
 //                   <TableData>
-//                     <EditBtn onClick={() => openEditModal(index, Rowdata.name)}>
+//                     <GreenBtn
+//                       onClick={() => openEditModal(index, Rowdata.name)}
+//                     >
 //                       Edit
-//                     </EditBtn>{" "}
-//                     <DeleteBtn>Delete</DeleteBtn>
+//                     </GreenBtn>{" "}
+//                     <RedBtn>Delete</RedBtn>
 //                   </TableData>
 //                 </tr>
 //               ))}
@@ -81,15 +83,18 @@
 
 //       {/* Edit Modal */}
 //       {isEditModalOpen && (
-//         <div className="edit-modal">
-//           <input
-//             type="text"
-//             value={editedValue}
-//             onChange={(e) => setEditedValue(e.target.value)}
-//           />
-//           <button onClick={handleEditSubmit}>Save</button>
-//           <button onClick={closeEditModal}>Cancel</button>
-//         </div>
+//         <EditModalOverlay>
+//           <EditModal>
+//             <label>Edit Name 'column 1'</label>
+//             <InputFeild
+//               type="text"
+//               value={editedValue}
+//               onChange={(e) => setEditedValue(e.target.value)}
+//             />
+//             <GreenBtn onClick={handleEditSubmit}>Save</GreenBtn>
+//             <RedBtn onClick={closeEditModal}>Cancel</RedBtn>
+//           </EditModal>
+//         </EditModalOverlay>
 //       )}
 //     </>
 //   );
@@ -116,6 +121,7 @@ import {
 function Home() {
   const [data, setData] = useState<any[]>([]);
   const [isEditModalOpen, setEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [editedValue, setEditedValue] = useState("");
   const [editedIndex, setEditedIndex] = useState(-1);
 
@@ -131,8 +137,17 @@ function Home() {
     setEditModalOpen(true);
   };
 
+  const openDeleteModal = (index: number) => {
+    setEditedIndex(index);
+    setDeleteModalOpen(true);
+  };
+
   const closeEditModal = () => {
     setEditModalOpen(false);
+  };
+
+  const closeDeleteModal = () => {
+    setDeleteModalOpen(false);
   };
 
   const handleEditSubmit = () => {
@@ -140,6 +155,13 @@ function Home() {
     newData[editedIndex].name = editedValue;
     setData(newData);
     closeEditModal();
+  };
+
+  const handleDeleteSubmit = () => {
+    const newData = [...data];
+    newData.splice(editedIndex, 1);
+    setData(newData);
+    closeDeleteModal();
   };
 
   return (
@@ -171,7 +193,9 @@ function Home() {
                     >
                       Edit
                     </GreenBtn>{" "}
-                    <RedBtn>Delete</RedBtn>
+                    <RedBtn onClick={() => openDeleteModal(index)}>
+                      Delete
+                    </RedBtn>
                   </TableData>
                 </tr>
               ))}
@@ -180,10 +204,11 @@ function Home() {
         </TablesForm>
       </MainContainer>
 
-      {/* Edit Modal */}
+      {/* Edit Modal Form pop-up */}
       {isEditModalOpen && (
         <EditModalOverlay>
           <EditModal>
+            <label>Edit Name 'column 1'</label>
             <InputFeild
               type="text"
               value={editedValue}
@@ -191,6 +216,17 @@ function Home() {
             />
             <GreenBtn onClick={handleEditSubmit}>Save</GreenBtn>
             <RedBtn onClick={closeEditModal}>Cancel</RedBtn>
+          </EditModal>
+        </EditModalOverlay>
+      )}
+
+      {/* Delete Modal from pop-up */}
+      {isDeleteModalOpen && (
+        <EditModalOverlay>
+          <EditModal>
+            <p>Are you sure delete this Row ?</p>
+            <GreenBtn onClick={handleDeleteSubmit}>Yes</GreenBtn>
+            <RedBtn onClick={closeDeleteModal}>No</RedBtn>
           </EditModal>
         </EditModalOverlay>
       )}
